@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Rewaz Esmaeel">
+        <title>Calendar</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="calendarController.js"></script>
+        <link rel="stylesheet" href="calendarStyle.css"/>
+    </head>
+    <body ng-app= "calendarApp" >
+        <div class="calendar" ng-controller="calendarController">
+
+            <div class="header">
+                <div class="row actions">
+                    <div class="col-xs-6 col-no-padding">
+                        <div class="right pointer" ng-click="clear()">Clear</div>
+                    </div>
+                    <div class="col-xs-6 col-no-padding text-right">
+                        <i ng-click="">&#10006;</i>
+                    </div>
+                </div>
+                <div class="row dates">
+                    <div class="col-xs-12 col-no-padding text-center" ng-if="singleDatePickerAllowed">
+                        <span>{{startWeekDay}} {{startDate}}</span>
+                    </div>
+                    <div class="col-xs-6 col-no-padding" ng-if="!singleDatePickerAllowed">
+                        <span>{{startWeekDay}} {{startDate}}</span>
+                    </div>
+                    <div class="col-xs-6 col-no-padding text-right" ng-if="!singleDatePickerAllowed">
+                        <span>{{endWeekDay}} {{endDate}}</span>
+                    </div>
+                </div>
+
+                <div class="row weekdays">
+                    <ul>
+                        <li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li><li>S</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <ion-content>
+                <div class="content">
+
+
+                        <div class="month" ng-repeat= "month in NextMaxNumOfMonths">
+
+                            <div class="label">
+                                {{month.monthName}} <span ng-if="month.year != currentYear">{{month.year}}</span>
+                            </div>
+
+                            <div class="dateNumbersContainer">
+                                <div class="dateNumbers {{month.year + '-' + month.monthName + '-' + 'start'}}" ng-repeat= "n in [] | range:month.numberOfGapDays"></div>
+                                <div class="dateNumbers" ng-repeat= "n in [] | range:month.numberOfDays" >
+                                    <div class="numberContainer" id="{{month.year + '-' +  month.monthName + '-' + ($index+1)}}" data-ng-click="runWhenItemClicked($event)"  ng-class="{numberCircle: (n ==todayDateOfTheMonth-1 && month.monthName == months[currentMonth] )}">
+                                        <span class="number" ng-class = "{passedDays: (n < todayDateOfTheMonth-1 && month.monthName == months[currentMonth]) }">
+                                            {{$index+1}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class= "dateNumbers {{month.year + '-' + month.monthName + '-' + 'end'}}" ng-repeat= "n in [] | range:(35-month.numberOfDays-month.numberOfGapDays)"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+        	</ion-content>
+
+            <div class="footer red-gradient disableBtn" ng-class="{'disableBtn': disableSaveBtn()}" ng-click="saveDates();$parent.saveDates()">
+                <div>Save</div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,194 @@
+
+/* Header
+*************************/
+
+    .calendar .header
+    {
+        background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+        color: white;
+        font-weight: bold;
+        padding: 0 20px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+		top: 0;
+    }
+
+    .calendar .header > .row.weekdays
+    {
+        margin-left:  -10px;
+        margin-right: -10px;
+    }
+
+    .calendar .header .actions i
+    {
+        color: white;
+    }
+
+
+    /*  Start & End Date
+    *************************/
+
+    .calendar .header > .row.dates
+    {
+        font-size: 25px;
+    }
+
+    /* Week weekdays
+    *************************/
+
+        .calendar .weekdays
+        {
+            display: block;
+        }
+
+        .calendar ul
+        {
+            padding: 0;
+        }
+
+        .calendar .weekdays li
+        {
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            width: 14%;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+        }
+
+
+/* Calendar
+*************************/
+
+    .calendar ion-content
+    {
+        top: 160px;
+        bottom: 60px;
+    }
+
+    .calendar .content
+    {
+        top: 35px;
+    }
+
+    .calendar .month
+    {
+        margin: 10px;
+    }
+
+    .calendar .month .label
+    {
+        color: #e15237;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+
+    .calendar .dateNumbersContainer
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .calendar .dateNumbers
+    {
+        font-size: 14px;
+        width: 14%;
+        text-align: center;
+        flex-shrink: 0;
+        flex-grow: 0;
+        height: 0;
+        padding-bottom: 14%;
+        position: relative;
+        margin-top: 4px;
+    }
+
+    .calendar .numberContainer
+    {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .calendar .numberSelected
+    {
+        color: white;
+        background: rgba(60, 196, 222,0.7);
+    }
+
+    .calendar .firstNumberSelected
+    {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+
+    .calendar .secondNumberSelected
+    {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+
+
+    .calendar .whiteText
+    {
+        color: red;
+    }
+
+    /* .calendar .number
+    {
+        color: black;
+    } */
+
+    .calendar .passedDays
+    {
+        color: #ddd;
+    }
+
+    .calendar .numberCircle
+    {
+        border-radius: 50%;
+        padding: 8px;
+        border: 2px solid #e2e2e2;
+        text-align: center;
+    }
+
+    .calendar .gapDayBg
+    {
+        background: rgba(60, 196, 222,0.7);
+    }
+
+    /* save
+    *************************/
+
+    .disableBtn
+    {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .calendar .footer
+    {
+        background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px;
+    }
