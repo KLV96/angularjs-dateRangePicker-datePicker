@@ -169,6 +169,11 @@
         background: rgba(60, 196, 222,0.7);
     }
 
+    .extraPadding
+    {
+        padding-bottom: 75px;
+    }
+
     /* save
     *************************/
 

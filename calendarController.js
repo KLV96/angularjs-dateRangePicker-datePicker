@@ -3,7 +3,6 @@ calendarApp.controller('calendarController', function($scope)
 {
 
     // Variables that can be changed
-    var minNumberOfMonths = 0;
     var maxNumberOfMonths = 12;
     var bookingOnTheSameDayAllowed = true;
     $scope.singleDatePickerAllowed = false;
@@ -14,7 +13,6 @@ calendarApp.controller('calendarController', function($scope)
     var currentMonth  = new Date().getMonth();
     var IsfirstRangeIsChosen = false;
     var numOflicks = 0;
-    var todayIsClickedForBooking = false;
 
     if($scope.singleDatePickerAllowed)
     {
