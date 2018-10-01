@@ -185,12 +185,8 @@ calendarApp.controller('calendarController', function($scope)
         console.log("selected day is " + selectedDate);
         console.log("today element is " + todayElement);
 
-        // console.log("selected date : " + selectedDate);
-        // console.log("today's date : " + todayDate);
         if( selectedDate > todayDate)
         {
-            // console.log(detailsOfFirstNumberClicked.id  + "<" + selectedDate.getDate());
-
             if(numOflicks%2 != 0 )
             {
                 if(!checkIfRangeAvailable(idDetails))
@@ -200,25 +196,11 @@ calendarApp.controller('calendarController', function($scope)
                     return true;
                 }
 
-                // console.log(detailsOfFirstNumberClicked.id + ">" + selectedDate.getDate());
-                // console.log( (getMonthIndex(detailsOfFirstNumberClicked.month)-1) + "<=" + selectedDate.getMonth());
-                // console.log(detailsOfFirstNumberClicked.year + "<=" + selectedDate.getFullYear());
-                //
-                // console.log("-----------------------");
-                //
-                // console.log(detailsOfFirstNumberClicked.id > selectedDate.getDate());
-                // console.log(getMonthIndex(detailsOfFirstNumberClicked.month-1) >= (selectedDate.getMonth()) );
-                // console.log(detailsOfFirstNumberClicked.year >= selectedDate.getFullYear() );
-
-
                 if( detailsOfFirstNumberClicked.id > selectedDate.getDate() &&
                     getMonthIndex(detailsOfFirstNumberClicked.month)-1 >= (selectedDate.getMonth()) &&
                     detailsOfFirstNumberClicked.year >= selectedDate.getFullYear() )
                     {
                         numOflicks = 0;
-                        // console.log("nonono non onon onon on");
-
-                        // $scope.clear();
                         return true;
                     }
             }
@@ -228,10 +210,6 @@ calendarApp.controller('calendarController', function($scope)
                     selectedDate.getMonth() == todayDate.getMonth() &&
                     selectedDate.getYear() == todayDate.getYear())
         {
-            // console.log("today is ");
-            // console.log(todayElement);
-            // todayElement.classList.remove("numberCircle");
-            // console.log("whyyyyyyyyyyyyyyyyyyyyy ?!");
 
             if(numOflicks%2 != 0 )
             {
@@ -246,7 +224,6 @@ calendarApp.controller('calendarController', function($scope)
 
             $scope.clear();
             numOflicks = 0;
-            // todayElement.classList.add("numberCircle");
             return false;
         }
 
@@ -254,21 +231,14 @@ calendarApp.controller('calendarController', function($scope)
 
     function checkIfRangeAvailable(secondSelectedItem)
     {
-        // console.log("the second selected item is " + secondSelectedItem[1]);
-        // console.log("why the fu this is not running ?!");
-        // console.log(getMonthIndex(detailsOfFirstNumberClicked.month) + " > " + secondSelectedItem[1] );
-        // console.log(detailsOfFirstNumberClicked.year + " < " + secondSelectedItem[0] );
-        // console.log(detailsOfFirstNumberClicked.year < secondSelectedItem[0] );
 
         if( getMonthIndex(detailsOfFirstNumberClicked.month) > secondSelectedItem[1] &&
             detailsOfFirstNumberClicked.year == secondSelectedItem[0])
         {
-            // console.log("false is returned for the month");
             return false;
         }
         else if (detailsOfFirstNumberClicked.year > secondSelectedItem[0] )
         {
-            // console.log("false is returned for the year");
             return false;
         }
 
@@ -289,13 +259,11 @@ calendarApp.controller('calendarController', function($scope)
 
     function hightLightNumbersInBetween()
     {
-        // console.log("```````````````````````````````````````````");
-        // console.log(detailsOfSecondNumberClicked.month);
-        // var numberContainers = document.querySelectorAll("[id*='" + $scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)+i] + "']");
-        var numberContainers = document.querySelectorAll('[class^=numberContainer]');
 
+        var numberContainers = document.querySelectorAll('[class^=numberContainer]');
         var indexOfFirstMonthClicked = getMonthIndex(detailsOfFirstNumberClicked.month);
         var indexOfSecondMonthclicked = getMonthIndex(detailsOfSecondNumberClicked.month);
+
         if(detailsOfSecondNumberClicked.year != detailsOfFirstNumberClicked.year)
         {
             indexOfSecondMonthclicked = parseInt(indexOfSecondMonthclicked) + 12;
@@ -306,8 +274,6 @@ calendarApp.controller('calendarController', function($scope)
         for(var i=0; i < numberContainers.length; i++)
         {
             var idDetails = getYearMonthDateFromID(numberContainers[i].id);
-            // console.log(idDetails[1]);
-            // console.log(idDetails);
 
             if( parseInt(idDetails[2]) > detailsOfFirstNumberClicked.id &&
                 parseInt(idDetails[2]) <= detailsOfSecondNumberClicked.id &&
@@ -319,8 +285,6 @@ calendarApp.controller('calendarController', function($scope)
 
             if(detailsOfFirstNumberClicked.month != detailsOfSecondNumberClicked.month)
             {
-                // console.log(idDetails[1] + " == " + detailsOfFirstNumberClicked.month);
-                // console.log(parseInt(idDetails[2]) + " > " + detailsOfFirstNumberClicked.id);
                 if(idDetails[1] == detailsOfFirstNumberClicked.month && parseInt(idDetails[2]) > detailsOfFirstNumberClicked.id)
                 {
                     numberContainers[i].classList.add("numberSelected");
@@ -336,9 +300,6 @@ calendarApp.controller('calendarController', function($scope)
                 {
                     numberContainers[i].classList.add("numberSelected");
                 }
-
-
-
             }
 
         }
@@ -349,47 +310,7 @@ calendarApp.controller('calendarController', function($scope)
         highLightGapDays(numberOfMonthsInBetween-1);
 
 
-        // if(detailsOfFirstNumberClicked.month != detailsOfSecondNumberClicked.month)
-        // {
-        //
-        //     var numberOfMonthsInBetween = getMonthIndex(detailsOfSecondNumberClicked.month) - getMonthIndex(detailsOfFirstNumberClicked.month);
-        //     highLightGapDays();
-        //
-        //     if(numberOfMonthsInBetween != 1)
-        //     {
-        //         // highlightMonthsInBetween(numberOfMonthsInBetween);
-        //     }
-        // }
-
     }
-
-    // function hightLightNumbersInBetween()
-    // {
-    //     var firstMonth = document.querySelectorAll("[id*='" + $scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)] + "']");
-    //     var secondMonth = document.querySelectorAll("[id*='" + $scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)] + "']");
-    //
-    //
-    //
-    //     for(var i=0; i<firstMonth.length;i++)
-    //     {
-    //         var firstMonthDetails = getYearMonthDateFromID(firstMonth[i].id);
-    //         if(parseInt(firstMonthDetails[2]) > detailsOfFirstNumberClicked.id)
-    //         {
-    //             firstMonth[i].classList.add("numberSelected");
-    //         }
-    //     }
-    //
-    //     for(var i=0; i<secondMonth.length;i++)
-    //     {
-    //         var secondMonthDetails = getYearMonthDateFromID(secondMonth[i].id);
-    //         if(parseInt(secondMonthDetails[2]) <= detailsOfSecondNumberClicked.id)
-    //         {
-    //             secondMonth[i].classList.add("numberSelected");
-    //         }
-    //     }
-    //
-    // }
-
 
     function highLightGapDays(numberOfMonths)
     {
@@ -437,51 +358,13 @@ calendarApp.controller('calendarController', function($scope)
             }
         }
 
-
-
-        // console.log("This is the numbe of months in between : " + numberOfMonths);
-        // var starGapDays = detailsOfSecondNumberClicked.year + '-' + detailsOfSecondNumberClicked.month + '-' + 'start';
-        // var endGapDays = detailsOfFirstNumberClicked.year + '-' + detailsOfFirstNumberClicked.month + '-' + 'end';
-        //
-        // var starGapDaysElements = document.querySelectorAll("[class~='" + starGapDays + "']");
-        // var endGapDaysElements = document.querySelectorAll("[class~='" + endGapDays + "']");
-        //
-        // for(var i=0; i < starGapDaysElements.length; i++)
-        // {
-        //     starGapDaysElements[i].classList.add("gapDayBg");
-        // }
-        //
-        // for(var i=0; i < endGapDaysElements.length; i++)
-        // {
-        //     endGapDaysElements[i].classList.add("gapDayBg");
-        // }
     }
-    //
-    // function highlightMonthsInBetween(numberOfMonthsInBetween)
-    // {
-    //     alert(numberOfMonthsInBetween-1);
-    //     // alert($scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)+0]);
-    //     for(i=1; i<=numberOfMonthsInBetween-1; i++)
-    //     {
-    //         console.log("okoko");
-    //         var daysOfTheMonth = document.querySelectorAll("[id*='" + $scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)+i] + "']");
-    //         var gapDaysOfTheMonth = document.querySelectorAll("[class*='" + $scope.months[getMonthIndex(detailsOfFirstNumberClicked.month)+i] + "']");
-    //
-    //
-    //         // console.log("teeeeeeeeest");
-    //         addClassToQuerySelector(gapDaysOfTheMonth,"gapDayBg");
-    //         addClassToQuerySelector(daysOfTheMonth,"numberSelected");
-    //
-    //     }
-    // }
 
     function addClassToQuerySelector(selector,className)
     {
-        // console.log(selector);
         for (int =0; i < selector.length;i++)
         {
             selector[i].classList.add(className);
-            // console.log(selector[i]);
         }
     }
 
@@ -505,7 +388,6 @@ calendarApp.controller('calendarController', function($scope)
         {
             setYearMonthDateOfClickedItem(item.id,2);
             var firstElement = document.querySelectorAll('.firstNumberSelected.secondNumberSelected');
-            // var todayElement = document.querySelectorAll('.numberCircle');
             firstElement[0].classList.remove("secondNumberSelected");;
             item.classList.add("secondNumberSelected");
             hightLightNumbersInBetween();
@@ -522,10 +404,7 @@ calendarApp.controller('calendarController', function($scope)
                     detailsOfFirstNumberClicked.month == $scope.months[todayDate.getMonth()] &&
                     detailsOfFirstNumberClicked.year == todayDate.getFullYear())
         {
-            // console.log("today is ");
-            // console.log(todayElement);
             todayElement.classList.remove("numberCircle");
-
         }
 
         else
@@ -665,24 +544,11 @@ calendarApp.controller('calendarController', function($scope)
 
     $scope.saveDates = function()
     {
-        // var firstMonthIndex = getMonthIndex(detailsOfFirstNumberClicked.month)-1;
-        // var secondMonthIndex = getMonthIndex(detailsOfSecondNumberClicked.month)-1;
-        //
-        // var dates = {
-        //     from: moment((detailsOfFirstNumberClicked.year + "," + (firstMonthIndex+1) + "," + detailsOfFirstNumberClicked.id).replace(/,/g, "/")).toDate(),
-        //     to: moment((detailsOfSecondNumberClicked.year + "," + (secondMonthIndex+1) + "," + detailsOfSecondNumberClicked.id).replace(/,/g, "/")).toDate()
-        // };
 
-        // console.log(dates);
-        // hotelSearchOptions.setDates(dates);
-        // console.log(dates);
     }
 
     $scope.clear = function()
     {
-        // console.log("this is running ");
-        // var starGapDays = detailsOfSecondNumberClicked.year + '-' + detailsOfSecondNumberClicked.month + '-' + 'start';
-        // var endGapDays = detailsOfFirstNumberClicked.year + '-' + detailsOfFirstNumberClicked.month + '-' + 'end';
 
         if($scope.singleDatePickerAllowed)
         {
@@ -732,7 +598,6 @@ calendarApp.controller('calendarController', function($scope)
 
     $scope.getNumberOfClicks = function()
     {
-        // console.log("num of clicks is : " + getNumberOfClicks);
         return numOflicks;
     }
 
@@ -743,26 +608,14 @@ calendarApp.controller('calendarController', function($scope)
 
     $scope.disableSaveBtn = function()
     {
-
-        // console.log("--------------------------------");
-        // console.log($scope.startDate === 'Start date' );
-        // console.log($scope.endDate  === 'End date');
-
         if($scope.startDate === 'Start date' || $scope.startDate === 'Select Date' || $scope.endDate  === 'End date')
         {
-            // console.log("true is returned ^^^^^^^^^ ");
             return true;
         }
-
-
         return false;
     }
 
-
-
-
     createNextMaxNumOfMonths(currentMonth);
-
 
 });
 

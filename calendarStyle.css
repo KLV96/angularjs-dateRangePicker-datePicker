@@ -82,6 +82,11 @@
         margin: 10px;
     }
 
+    .calendar .month:first-child
+    {
+        padding-top: 165px;
+    }
+
     .calendar .month .label
     {
         color: #e15237;
