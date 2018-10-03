@@ -1,12 +1,12 @@
 # angularjs-dateRangePicker-datePicker ![](https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/klv44px48px.png)
 
 <p align="center">
-    <img src="https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/DateRange.png" width= "1000" height= "700" alt>
+    <img src="https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/DateRange.png" width= "800" height= "500" alt>
 </p>
 <br />
 <br />
 <p align="center">
-    <img src="https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/SingleDate.png" width= "1000" height= "700" alt>
+    <img src="https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/SingleDate.png" width= "800" height= "500" alt>
 </p>
 
 ### Languages Used:
