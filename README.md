@@ -9,6 +9,9 @@
     <img src="https://github.com/KLV96/angularjs-dateRangePicker-datePicker/blob/master/DocumentationAssets/SingleDate.png" width= "800" height= "500" alt>
 </p>
 
+### Demo: 
+#### https://codepen.io/klv96/pen/xxVBZXr
+
 ### Languages Used:
 * HTML
 * CSS/Bootstrap
