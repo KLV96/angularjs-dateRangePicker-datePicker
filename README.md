@@ -10,7 +10,7 @@
 </p>
 
 ### Demo: 
-#### https://codepen.io/klv96/pen/xxVBZXr
+#### https://jsfiddle.net/KLV96/qhe4n591/
 
 ### Languages Used:
 * HTML
